@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TheMovieDB
 //
-//  Created by Appaji Tholeti on 11/2/18.
+//  Created by Appaji Tholeti on 11/4/18.
 //  Copyright © 2018 Appaji Tholeti. All rights reserved.
 //
 
@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if let nv = window?.rootViewController as? UINavigationController,
+            let vc = nv.topViewController as? MovieListViewController {
+            vc.viewModel = NowPlayingMoviesViewModel()
+        }
         // Override point for customization after application launch.
         return true
     }
