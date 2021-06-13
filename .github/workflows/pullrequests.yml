@@ -1,0 +1,19 @@
+name: remind review
+on:
+  schedule:
+    - cron: '0 15 * * *'
+jobs:
+  send_pull_requests:
+    runs-on: macos-latest
+    name: A job to say hello
+    steps:
+      - name: listPullRequests
+        uses: TholetiConsultancyServices/TheMovieDB-iOS@v1
+        id: list
+        with:
+          token: ${{secrets.APPAJI_THOLETI}}
+          labels: '["iOS"]'
+      - name: output
+        run: echo '${{ steps.list.outputs.pulls }}'
+        
+        
