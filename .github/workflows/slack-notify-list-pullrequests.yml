@@ -11,7 +11,7 @@ jobs:
         uses: TholetiConsultancyServices/TheMovieDB-iOS@v1
         id: list
         with:
-          token: ${{secrets.APPAJ_THOLETI}}
+          token: ${{secrets.GITHUB_TOKEN}}
           labels: '["iOS"]'
       - name: output
         run: echo '${{ steps.list.outputs.pulls }}'
